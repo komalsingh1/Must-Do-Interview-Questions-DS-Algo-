@@ -1,0 +1,41 @@
+/*Given an expression string exp. Examine whether the pairs and the orders of “{“,”}”,”(“,”)”,”[“,”]” are correct in exp.
+For example, the program should print 'balanced' for exp = “[()]{}{[()()]()}” and 'not balanced' for exp = “[(])”  */
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+ {
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    map <char,char> ma;
+	    ma['}']='{';
+	    ma[')']='(';
+	    ma[']']='[';
+	
+	    string s;
+	    int flag=0;
+	    cin>>s;
+	    stack<char> a;
+	    for(int i=0;i<s.length();i++)
+	    {
+	        if(s[i]=='('||s[i]=='{'||s[i]=='[')
+	        a.push(s[i]);
+	        else 
+	        {
+	            if(!a.empty() && ma[s[i]]==a.top())
+	             a.pop() ;
+	             else
+	             {
+	                 flag=1;
+	                 break;
+	             }
+	        }
+	    }
+	    if(flag==0 && a.empty())
+	    cout<<"balanced"<<endl;
+	    else
+	     cout<<"not balanced"<<endl;
+	}
+}
