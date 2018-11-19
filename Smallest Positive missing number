@@ -1,0 +1,28 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main() {
+    int t;
+	cin>>t;
+	while(t--)
+	{
+	    int b[100000];
+	    memset(b,0,sizeof b);
+	    int i,s,n;
+	    cin>>n;
+	    for(i=0;i<n;i++)
+	    {
+	        cin>>s;
+	        if(s>=0)
+	        b[s]=1;
+	    }
+	    for(i=1;i<100000;i++)
+	    {
+	        if(b[i]==0)
+	        {
+	        cout<<i<<endl;
+	        break;
+	        }
+	    }
+	}
+	return 0;
+}
