@@ -22,3 +22,7 @@ int main()
 	}
 	return 0;
 }
+
+
+
+//Concept of XOR can be also used in the question x^x=0
