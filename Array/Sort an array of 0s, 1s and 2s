@@ -1,0 +1,57 @@
+//Given an array A of size N containing 0s, 1s, and 2s; you need to sort the array in ascending order.
+//Dutch National Flag Algorithm, or 3-way Partitioning 
+#inlude<bits/stdc++.h>
+using namespace std;
+int main() {
+	int tc;
+	cin >> tc;
+	while(tc){
+	    
+	    unsigned int size;
+	    cin >> size;
+	    
+	    int a[size];
+	    
+	    int i = 0;
+	    while(i<size){
+	        cin >> a[i];
+	        i++;
+	    }
+	    
+	    int start = 0;
+	    int mid = 0;
+	    int end = size - 1;
+	    
+	    i = 0;
+
+        while(mid<=end){
+            switch(a[mid]){
+                
+                case 0:
+                    swap(a[start], a[mid]);
+                    start++;
+                    mid++;
+                break;
+                
+                case 1:
+                    mid++;
+                break;
+                
+                case 2:
+                    swap(a[mid], a[end]);
+                    end--;
+                break;
+            }
+        }
+
+	    for(auto j = 0; j < size; j++){
+	        cout << a[j] << " ";
+	    }
+	    
+	    cout << endl;
+	    
+	    --tc;
+	}
+	
+	return 0;
+}
