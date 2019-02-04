@@ -1,0 +1,32 @@
+
+//Given an array of positive integers. Your task is to find the leaders in the array.
+//Note: An element of array is leader if it is greater than or equal to all the elements to its right side. Also, the rightmost element is always a leader.
+
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+ {
+	int t;
+     cin>>t;
+     while(t--)
+     {
+         int n,i,max;
+         cin>>n;
+         int a[n];
+         for(i=0;i<n;i++)
+         cin>>a[i];
+         max=a[n-1];
+         cout<<max<<" ";
+         for(i=n-2;i>=0;i--)
+         {
+            if(max<=a[i])
+            {
+            max=a[i];
+            cout<<a[i]<<" ";
+            }
+         }
+        cout<<endl;
+     }
+	return 0;
+}
