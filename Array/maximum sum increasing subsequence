@@ -1,0 +1,33 @@
+//Given an array of n positive integers. Write a program to find the sum of maximum sum subsequence of the given array such that the integers in the subsequence are sorted in increasing order.
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+ {
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    int n,i,j,max=0;
+	    cin>>n;
+	    int a[n];
+	    for(i=0;i<n;i++)
+	    cin>>a[i];
+	    int msis[n];
+	    for(i=0;i<n;i++)
+	    msis[i]=a[i];
+	    for(i=1;i<n;i++)
+	    {
+	        for(j=0;j<i;j++)
+	        {
+	            if(a[i]>a[j] && msis[i] < msis[j] + a[i]) 
+                msis[i] = msis[j] + a[i]; 
+	        }
+	    }
+	    for ( i = 0; i < n; i++ ) 
+        if ( max < msis[i] ) 
+            max = msis[i]; 
+            cout<<max<<endl;
+	}
+	return 0;
+}
