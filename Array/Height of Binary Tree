@@ -1,1 +1,19 @@
-
+// Function program
+/* Computes the height of binary tree with given root.  */
+int height(Node* node)
+{
+   // Your code here
+   int h=0;
+   if(node==NULL)
+   return 0;
+   int left=height(node->left);
+   int right=height(node->right);
+   if(left>right)
+   {
+       h=1+left;
+   }
+   else{
+       h=1+right;
+   }
+   return h;
+}
