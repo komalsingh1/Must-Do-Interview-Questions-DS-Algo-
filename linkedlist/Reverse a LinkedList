@@ -1,0 +1,23 @@
+Given a linked list of length N. The task is to reverse the list.
+
+Input:
+First line of input contains number of testcases T. For each testcase, first line contains length of linked list and next line contains the elements of linked list.
+
+Output:
+Reverse the linked list and return head of the modified list.
+
+// Should reverse list and return new head.
+Node* reverse(Node *head)
+{
+  // Your code here
+     Node *current = head; 
+        Node *prev = NULL, *next = NULL;
+        while (current != NULL) 
+        { 
+            next = current->next; 
+            current->next = prev; 
+            prev = current; 
+            current = next; 
+        } 
+        head = prev; 
+}
