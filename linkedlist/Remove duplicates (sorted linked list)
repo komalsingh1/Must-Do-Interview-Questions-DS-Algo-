@@ -1,0 +1,26 @@
+/*Remove duplicates from a sorted linked list
+Write a function which takes a list sorted in non-decreasing order and deletes any duplicate nodes from the list. The list should only be traversed once.
+For example if the linked list is 11->11->11->21->43->43->60 then removeDuplicates() should convert the list to 11->21->43->60.*/
+
+Node *removeDuplicates(Node *root)
+{
+
+ struct Node* current=root;
+ struct Node* next;
+ if(current==NULL)
+ return NULL;
+ while(current->next!=NULL)
+ {
+    if(current->data==current->next->data)
+    {
+        next=current->next->next;
+        free(current->next);
+        current->next=next;
+    }
+    else
+    {
+        current=current->next;
+    }
+ }
+ return root;
+}
