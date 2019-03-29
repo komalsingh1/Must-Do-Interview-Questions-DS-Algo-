@@ -1,0 +1,56 @@
+*/Given a sorted linked list, delete all nodes that have duplicate numbers (all occurrences), leaving only numbers that appear once in the original list.
+
+Examples:
+
+Input : 23->28->28->35->49->49->53->53
+Output : 23->35
+
+Input : 11->11->11->11->75->75
+Output : empty List*/
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* deleteDuplicates(ListNode* head) {
+        ListNode* curr =head;
+        ListNode* pre = head;
+        
+        while(head!=NULL){
+            bool flag=true;     
+            while(head->next!=NULL && head->val==head->next->val){
+                ListNode* temp= head->next;
+                head->next=temp->next;
+                delete temp;
+                flag=false;
+            }
+            
+            if(flag==true){
+                pre=head;
+                head=head->next;
+            
+            }
+            else{
+                if(head==curr && head->next==NULL) 
+                    return NULL;
+                else if (head==curr && head->next!=NULL){  
+                    curr=head->next;
+                    delete head;
+                    pre=curr;
+                    head=pre;
+                }else{
+                    pre->next=head->next;
+                    delete head;
+                    head=pre;
+                }
+            }
+        }
+        return curr;
+    }
+};
