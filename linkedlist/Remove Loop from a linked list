@@ -1,0 +1,31 @@
+/*The function removes the loop from the linked list if present
+You are required to complete this method*/
+void removeTheLoop(Node *head)
+{
+     //Your code here
+     if(head==NULL || head->next==NULL)
+     return;
+     
+     struct Node* slow=head;
+     struct Node* fast=head;
+     slow=slow->next;
+     fast=fast->next->next;
+     while(fast && fast->next)
+     {
+         if(slow==fast)
+         break;
+         slow=slow->next;
+         fast=fast->next->next;
+     }
+    
+     if(slow==fast)
+     {
+        while(slow->next!=fast->next)
+        {
+            slow=slow->next;
+            fast=fast->next;
+        }
+        fast->next=NULL;
+     }
+   
+}
