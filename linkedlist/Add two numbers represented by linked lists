@@ -1,0 +1,45 @@
+//Given two numbers represented by two linked lists of size N and M. The task is to return a sum list. The sum list which is list representation of addition of two input numbers.
+
+Input:
+First line of input contains number of testcases T. For each testcase, first line of input contains length of first linked list and next line contains N elements of the linked list. Again, next line contains M, and following line contains M elements of the linked list.
+
+Output:
+Output the resultant linked list.//
+
+
+
+/*struct Node
+{
+    int data;
+   Node* next;
+}; */
+//write a function returns the resultant linked list
+Node*  addTwoLists(Node* first, Node* second)
+{
+  Node* res = NULL; // to store result of addition 
+    Node *temp, *prev = NULL;  
+    int carry = 0, sum;  
+  while (first != NULL || second != NULL) //while both lists exist  
+    {  
+        sum = carry + (first? first->data: 0) + 
+                      (second? second->data: 0); 
+                      
+        carry = (sum >= 10)? 1 : 0;
+        sum = sum % 10; 
+        temp = newNode(sum);//making a new list for the result
+        if(res == NULL)  
+            res = temp;
+             else  
+            prev->next = temp; 
+        prev = temp; 
+        if (first) 
+        first = first->next;  
+        if (second) 
+        second = second->next;  
+    }  
+  
+    if(carry>0)
+    temp->next=newNode(carry); 
+     return res;  
+ 
+}
