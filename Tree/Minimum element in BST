@@ -1,0 +1,24 @@
+//Given an array of size N which represents the elements to be inserted into BST (considering first element as root). 
+The task is to find the minimum element in this given BST. If the tree is empty, there is no minimum elemnt, so print -1 in that case.
+
+Structure of the node of the binary search tree is as
+struct node 
+{
+	int data;
+	struct node* left;
+	struct node* right;
+};
+*/
+// your task is to complete the below function
+int minValue(struct node* root)
+{
+    // Code here
+    if(root==NULL)
+    return 0;
+    node *current=root;
+    while(current->left!=NULL)
+    {
+        current=current->left;
+    }
+    return current->data;
+}
