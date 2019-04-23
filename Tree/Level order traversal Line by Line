@@ -1,0 +1,38 @@
+Given a Binary Tree, your task is to print its level order traversal such that each level is separated by $ 
+For the below tree the output will be 1 $ 2 3 $ 4 5 6 7 $ 8 $
+
+          1
+       /     \
+     2        3
+   /    \     /   \
+  4     5   6    7
+    \
+     8
+     
+     
+
+void levelOrder(Node* node)
+{
+  //Your code here
+   if(node==NULL)
+   return;
+   queue<Node*>q;
+   q.push(node);
+   while(!q.empty())
+   {
+       int count=q.size();
+       while(count>0)
+       {
+           Node *x=q.front();
+           q.pop();
+           cout<<x->data<<" ";
+           if(x->left!=NULL)
+               q.push(x->left);
+          if(x->right!=NULL)
+         q.push(x->right);
+           count--;
+       }
+      cout<<"$"<<" ";
+   } 
+}
+
