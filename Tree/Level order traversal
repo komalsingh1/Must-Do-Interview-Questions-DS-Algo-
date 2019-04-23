@@ -1,0 +1,29 @@
+BST Implementaion
+/* A binary tree Node
+struct Node
+{
+    int data;
+    Node* left, * right;
+}; */
+//You are required to complete this method
+
+
+void levelOrder(Node* node)
+{
+  //Your code here
+  if(node==NULL)//Base Case
+  return;
+  Node *x;
+  queue<Node *> q;//Created a queue to store the address of the visited node
+  q.push(node);//enque root
+  while(!q.empty())
+  {
+      Node *x=q.front();
+      cout<<x->data<<" ";
+      q.pop();
+      if(x->left!=NULL)
+      q.push(x->left);
+      if(x->right!=NULL)
+      q.push(x->right);
+  }
+}
