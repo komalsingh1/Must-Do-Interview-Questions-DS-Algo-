@@ -1,0 +1,33 @@
+void rightView(Node *root)
+{
+    queue<struct Node *> q;
+        int i, s;
+        struct Node *cur;
+       if(root == NULL)
+            return;
+            
+        else
+        {
+            
+            q.push(root);
+            while(!q.empty()) 
+            {
+                
+                s = q.size();
+                for(i = 1; i <= s; i++) 
+                {
+                    cur = q.front();
+                    q.pop();
+                    if(i == s)
+                        cout << cur->data << " ";
+                    if(cur->left != NULL)
+                        q.push(cur->left);
+                    if(cur->right != NULL)
+                        q.push(cur->right);
+                    
+               }
+                
+            }
+            
+        }
+}
