@@ -14,7 +14,7 @@ void rightView(Node *root)
             {
                 
                 s = q.size();
-                for(i = 1; i <= s; i++) 
+                for(i = 1; i <= s; i++) // for left view of the tree play with it
                 {
                     cur = q.front();
                     q.pop();
