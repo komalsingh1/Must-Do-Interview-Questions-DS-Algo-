@@ -1,0 +1,24 @@
+Write a function that returns true if the given Binary Tree is SumTree else false. A SumTree is a Binary Tree where value of every node x is equal to sum of nodes present in its left subtree and right subtree of x. An empty tree is SumTree and sum of an empty tree can be considered as 0. A leaf node is also considered as SumTree.
+
+int sum(Node* root){
+    if(root==NULL){
+        return 0;
+    }
+    return sum(root->left)+root->data+sum(root->right);
+}
+bool isSumTree(Node* root)
+{
+     // Your code here
+     if(root==NULL || root->left==NULL&&root->right==NULL){
+         return true;
+     }
+     int ls = sum(root->left);
+     int rs = sum(root->right);
+     if(root->data==ls+rs&&isSumTree(root->left)&&isSumTree(root->right)){
+         return true;
+     }
+     return false;
+    
+}
+
+Worst case Time Complexity O(n^2) 
