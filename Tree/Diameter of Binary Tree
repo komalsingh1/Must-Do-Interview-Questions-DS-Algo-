@@ -1,0 +1,23 @@
+Given a Binary Tree, find diameter of it.
+
+The diameter of a tree is the number of nodes on the longest path between two leaves in the tree. 
+
+
+int height(struct Node* node); 
+int diameter(Node* node)
+{
+   // Your code here
+   if(node==NULL)
+   return 0;
+   int lh=height(node->left);
+   int rh=height(node->right);
+   int ld=diameter(node->left);
+   int rd=diameter(node->right);
+   return max(lh+ rh+ 1, max(ld, rd)); 
+}  
+int height(Node* node)
+{
+    if(node==NULL)
+    return 0;
+    return 1+max(height(node->left),height(node->right));
+}
