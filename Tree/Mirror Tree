@@ -1,0 +1,18 @@
+//Mirror of a Tree: Mirror of a Binary Tree T is another Binary Tree M(T) with left and right children of all non-leaf nodes interchanged.
+
+void mirror(Node* node) 
+{
+     // Your Code Here
+     if(node==NULL)
+     return;
+     else
+     {
+         struct Node* temp;
+         mirror(node->left);
+         mirror(node->right);
+         temp=node->left;
+         node->left=node->right;
+         node->right=temp;
+         
+     }
+}
