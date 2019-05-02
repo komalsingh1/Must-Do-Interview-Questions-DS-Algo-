@@ -1,2 +1,1 @@
-Must do Interview Question
-Collections of Question with solution The question that is most frequently asked in Interviews.
+These are the collection of Question on Data Structure and Algorith that i have come across in interniews or have solved for preparation.
