@@ -1,0 +1,62 @@
+/* A binary tree Node
+struct Node
+{
+    int data;
+    Node* left, * right;
+}; */
+void leaf(Node *root)
+{
+    if(root)
+    {
+        leaf(root->left);
+        if((!root->left) && (!root->right))
+            cout<<root->data<<" ";
+        leaf(root->right);
+    }
+}
+void printleft(Node *root)
+{
+    if(root)
+    {
+        if(root->left)
+        {
+            cout<<root->data<<" ";
+            printleft(root->left);
+        }
+        else if(root->right)
+        {
+            cout<<root->data<<" ";
+            printleft(root->right);
+        }
+    }
+}
+void printright(Node *root)
+{
+    if(root)
+    {
+        if(root->right)
+        {
+            printright(root->right);
+            cout<<root->data<<" ";
+           
+        }
+        
+        else if(root->left)
+        {
+            printright(root->left);
+            cout<<root->data<<" ";
+        }
+    }
+}
+
+void printBoundary(Node *root)
+{
+    if(root)
+    {
+        cout<<root->data<<" ";
+        printleft(root->left);
+        leaf(root->left);
+        leaf(root->right);
+        printright(root->right);
+    }
+}
