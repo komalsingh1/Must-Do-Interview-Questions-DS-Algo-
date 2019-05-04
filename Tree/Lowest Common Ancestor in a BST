@@ -1,0 +1,24 @@
+Given a Binary Search Tree and 2 nodes value n1 and n2, your task is to find the lowest common ancestor(LCA) of the two nodes .
+
+Input Format:
+The first line of input contains T denoting the number of testcases. T testcases follow. Each testcase contains three lines of input.
+The first line contains N, the number of nodes of the BST.
+The second line contains the values of the nodes, each separated by a space.
+The third line contains the two values n1 and n2 separated by a space.
+
+Output Format:
+For each testcase, in a new line, print the LCA of n1 and n2.
+
+
+
+Node* LCA(Node *root, int n1, int n2)
+{
+    if (root == NULL) 
+    return NULL; 
+    if (root->data > n1 && root->data > n2) 
+        return LCA(root->left, n1, n2); 
+    if (root->data < n1 && root->data < n2) 
+        return LCA(root->right, n1, n2); 
+    else
+    return root; 
+}
