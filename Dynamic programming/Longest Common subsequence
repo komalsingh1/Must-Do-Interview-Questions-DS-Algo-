@@ -1,0 +1,33 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main() {
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        char c1[101],c2[101];
+        int n,m;
+        cin>>n>>m;
+        cin>>c1;
+        cin>>c2;
+        int dp[n+1][m+1];
+        for(int i=0;i<=n;i++)
+        {
+            for(int j=0;j<=m;j++)
+            {
+             if(i==0 || j==0)
+             dp[i][j]=0;
+             else if(c1[i-1]==c2[j-1])
+             {
+                 dp[i][j]=dp[i-1][j-1]+1;
+             }
+             else
+             {
+                 dp[i][j]=max(dp[i][j-1],dp[i-1][j]);
+             }
+            }
+        }
+        cout<<dp[n][m]<<"\n";
+    }
+	return 0;
+}
