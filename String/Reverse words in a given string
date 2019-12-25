@@ -1,0 +1,38 @@
+Reverse word in a given string
+Input:
+2
+i.like.this.program.very.much
+pqr.mno
+
+Output:
+much.very.program.this.like.i
+mno.pqr
+
+
+
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+	int T;
+	cin >> T;
+	string s;
+	while(T--)
+	{
+	    cin >> s;
+	    string ans ="";
+	    string s1 = "";
+	    for(int i = s.length()-1; i >= 0; i--)
+	    {
+	        if(s[i] != '.')
+	        s1 = s[i]+s1;
+	        else
+	        {
+	            ans = ans+s1+".";
+	            s1 ="";
+	        }
+	    }
+	    ans = ans+s1;
+	    cout << ans <<endl;
+	}
+	return 0;
+}
