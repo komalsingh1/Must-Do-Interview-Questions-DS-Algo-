@@ -1,1 +1,1 @@
-These are the collection of Question on Data Structure and Algorith that i have come across in interniews or have solved for preparation.
+These are the collection of questions on Data Structures and Algorithms that i have come across in interviews or have solved for preparation.
